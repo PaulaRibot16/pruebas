@@ -9,6 +9,7 @@ import android.provider.AlarmClock
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Calendar
 
@@ -83,8 +84,19 @@ class MainActivity : AppCompatActivity() {
 
         //Botón Caja Fuerte
         btnCajaFuerte.setOnClickListener {
-            val intent = Intent(this, CajaFuerteActivity::class.java)
-            startActivity(intent)
+            val prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE)
+            val esMayorEdad = prefs.getBoolean("ES_MAYOR_EDAD", true)
+
+            if(esMayorEdad) {
+                val intent = Intent(this, CajaFuerteActivity::class.java)
+                startActivity(intent)
+            } else{
+                AlertDialog.Builder(this)
+                    .setTitle("Acceso restringido")
+                    .setMessage("Debes ser mayor de 18 años para acceder al juego de la Caja Fuerte.")
+                    .setPositiveButton("Entendido", null)
+                    .show()
+            }
         }
 
         //Botón Spinner

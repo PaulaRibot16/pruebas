@@ -24,7 +24,7 @@ class CajaFuerteActivity : AppCompatActivity() {
     private var sum: Int = 0
     private var numeroUsuario: Int = 0
     private var animacionMano: ObjectAnimator? = null
-    private var tiempoEntreTiradas: Long = 1000L // Valor por defecto (1 seg)
+    private var tiempoEntreTiradas: Long = 1000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,8 +40,8 @@ class CajaFuerteActivity : AppCompatActivity() {
         }
 
         // Recuperamos el tiempo elegido en el Spinner de Configuración (1000L, 2000L o 3000L)
-        val sharedPreferences = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE)
-        tiempoEntreTiradas = sharedPreferences.getLong("TIEMPO_TIRADA", 1000L)
+        val prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE)
+        tiempoEntreTiradas = prefs.getLong("TIEMPO_TIRADAS_MS", 1000L)
 
         initEvent()
     }
@@ -66,7 +66,6 @@ class CajaFuerteActivity : AppCompatActivity() {
             game(numeroObjetivo)
         }
 
-        // Botón para volver al Menú Principal (añádelo en tu activity_caja_fuerte.xml)
         binding.btnVolver.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
