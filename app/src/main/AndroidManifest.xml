@@ -43,8 +43,16 @@
             android:name=".LlamadaActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla 4: Caja Fuerte -->
         <activity
             android:name=".CajaFuerteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- Pantalla 5: Chistes -->
+        <activity
+            android:name=".ChistesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

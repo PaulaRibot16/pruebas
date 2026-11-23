@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F4F6"
+    android:padding="24dp"
+    tools:context=".ChistesActivity">
+
+    <TextView
+        android:id="@+id/tv_titulo_chistes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Rincón del Humor"
+        android:textColor="#1F2937"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_icono_chiste"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="Icono de voz para los chistes"
+        android:src="@android:drawable/ic_btn_speak_now"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo_chistes"
+        app:tint="#6200EE" />
+
+    <!-- Contenedor del texto del chiste -->
+    <LinearLayout
+        android:id="@+id/caja_texto_chiste"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_escuchar_chiste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_icono_chiste">
+
+        <TextView
+            android:id="@+id/tv_texto_chiste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Pulsa el botón para escuchar uno de los 10 chistes aleatorios"
+            android:textColor="#374151"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <!-- Botón principal: Chiste Aleatorio -->
+    <Button
+        android:id="@+id/btn_escuchar_chiste"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#6200EE"
+        android:text="Contar Chiste Aleatorio"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_controles_secundarios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botones secundarios para no depender de un único botón -->
+    <LinearLayout
+        android:id="@+id/layout_controles_secundarios"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btn_volver_chistes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_repetir_chiste"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#03DAC5"
+            android:text="Repetir"
+            android:textColor="#000000" />
+
+        <Button
+            android:id="@+id/btn_parar_voz"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="#D32F2F"
+            android:text="Parar Voz"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Botón volver al menú -->
+    <Button
+        android:id="@+id/btn_volver_chistes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#757575"
+        android:text="Volver al Menú"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
