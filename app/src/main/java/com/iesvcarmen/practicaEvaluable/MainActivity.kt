@@ -28,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         val btnAlarma = findViewById<ImageButton>(R.id.btn_alarma)
         val btnLibre = findViewById<ImageButton>(R.id.btn_libre)
         val btnVolver = findViewById<Button>(R.id.btn_volver_config)
+        val btnCajaFuerte = findViewById<ImageButton>(R.id.btn_cajaFuerte)
+        val btnChistes = findViewById< ImageButton>(R.id.btn_chistes)
 
         // Botón 1: Llamada (Intent Explícito pasando el nombre y teléfono)
         btnLlamada.setOnClickListener {
@@ -79,7 +81,19 @@ class MainActivity : AppCompatActivity() {
             lanzarIntent(intent, "No hay app de correo instalada")
         }
 
-        // Botón 5: Volver a Configuración (Intent Explícito)
+        //Botón Caja Fuerte
+        btnCajaFuerte.setOnClickListener {
+            val intent = Intent(this, CajaFuerteActivity::class.java)
+            startActivity(intent)
+        }
+
+        //Botón Spinner
+        btnChistes.setOnClickListener {
+            val intent = Intent(this, ChistesActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Botón: Volver a Configuración (Intent Explícito)
         btnVolver.setOnClickListener {
             val intent = Intent(this, ConfiguracionActivity::class.java)
             startActivity(intent)
