@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
     android:background="#E0F7FA"
+    android:fillViewport="true"
     tools:context=".ConfiguracionActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="24dp">
 
         <TextView
             android:id="@+id/titulo_telefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="50dp"
-            android:text="Configura el contacto"
-            android:textColor="#333333"
-            android:textSize="22sp" />
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="Configuración General"
+            android:textColor="#1F2937"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
+        <!-- Datos básicos de la UD1 -->
         <EditText
             android:id="@+id/et_nombre"
             android:layout_width="match_parent"
@@ -38,8 +34,8 @@
             android:layout_marginBottom="10dp"
             android:background="@color/white"
             android:hint="Introduce un nombre"
-            android:inputType="text"
-            android:padding="16dp"
+            android:inputType="textPersonName"
+            android:padding="14dp"
             android:textColor="@color/black"
             android:textColorHint="#757575" />
 
@@ -47,10 +43,11 @@
             android:id="@+id/et_telefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@color/white"
-            android:hint="Introduce un telefono"
+            android:hint="Introduce un teléfono (9 dígitos)"
             android:inputType="phone"
-            android:padding="16dp"
+            android:padding="14dp"
             android:textColor="@color/black"
             android:textColorHint="#757575" />
 
@@ -60,33 +57,138 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:background="@color/white"
-            android:hint="Introduce una url"
-            android:inputType="text"
-            android:padding="16dp"
+            android:hint="Introduce una URL"
+            android:inputType="textUri"
+            android:padding="14dp"
             android:textColor="@color/black"
-            android:textColorHint="#757575"
-            android:layout_marginTop="10dp"/>
+            android:textColorHint="#757575" />
 
         <EditText
             android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/white"
             android:hint="Introduce un email"
-            android:inputType="text"
-            android:padding="16dp"
+            android:inputType="textEmailAddress"
+            android:padding="14dp"
             android:textColor="@color/black"
             android:textColorHint="#757575" />
 
-        <Button
-            android:id="@+id/btn_guardar_entrar"
+        <!-- 1. SPINNER: Velocidad de la Caja Fuerte -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="Velocidad entre tiradas (Caja Fuerte):"
+            android:textColor="#333333"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/sp_tiempo_dados"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            android:paddingHorizontal="12dp" />
+
+        <!-- 2. RADIOGROUP: Tipo de voz en Chistes -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="Tono de voz en Chistes:"
+            android:textColor="#333333"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rg_tipo_voz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <RadioButton
+                android:id="@+id/rb_voz_normal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Voz Normal"
+                android:textColor="#333333" />
+
+            <RadioButton
+                android:id="@+id/rb_voz_grave"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Voz Grave"
+                android:textColor="#333333" />
+        </RadioGroup>
+
+        <!-- 3. CHECKBOX: Subtítulos en Chistes -->
+        <CheckBox
+            android:id="@+id/cb_mostrar_subtitulos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            android:checked="true"
+            android:padding="8dp"
+            android:text="Mostrar texto escrito (subtítulos) en Chistes"
+            android:textColor="#333333" />
+
+        <!-- 4. DATEPICKER: Fecha de nacimiento / registro -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:text="Selecciona tu fecha de nacimiento:"
+            android:textColor="#333333"
+            android:textStyle="bold" />
+
+        <DatePicker
+            android:id="@+id/dp_fecha_nacimiento"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner"/>
+
+        <!-- 5. PROGRESSBAR: Barra de carga en segundo plano -->
+        <ProgressBar
+            android:id="@+id/pb_cargando"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:max="100"
+            android:progress="0"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_estado_carga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Guardando configuración..."
+            android:textColor="#6200EE"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btn_guardar_entrar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="24dp"
             android:backgroundTint="#6200EE"
-            android:text="Guardar"
-            android:textColor="@color/white" />
+            android:text="Guardar y Continuar"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </ScrollView>
