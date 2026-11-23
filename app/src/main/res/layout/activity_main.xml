@@ -4,80 +4,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="#F3F4F6">
+    android:background="#F3F4F6"
+    android:fillViewport="true">
 
     <LinearLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="32dp"
         tools:context=".MainActivity">
 
-        <!-- texto principal -->
+        <!-- Texto principal con ID para personalizar el saludo con el nombre -->
         <TextView
+            android:id="@+id/tv_titulo_principal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Menú Principal"
             android:layout_marginBottom="15dp"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:text="Menú Principal"
+            android:textColor="#1F2937"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
         <!-- Imagen central -->
         <ImageView
             android:id="@+id/iv_imagen_central"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:src="@drawable/principal"
-            android:layout_marginBottom="40dp" />
+            android:layout_marginBottom="40dp"
+            android:contentDescription="Imagen principal de la aplicación"
+            android:src="@drawable/principal" />
 
-        <!-- Fila 1 de botones -->
+        <!-- Fila 1 de botones (Acciones UD1) -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/btn_llamada"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginEnd="16dp"
+                android:backgroundTint="#6200EE"
+                android:contentDescription="Realizar llamada"
                 android:src="@android:drawable/ic_menu_call"
-                android:backgroundTint="#6200EE" />
+                app:tint="#FFFFFF" />
 
             <ImageButton
                 android:id="@+id/btn_navegador"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#6200EE"
+                android:contentDescription="Abrir navegador web"
                 android:src="@android:drawable/ic_menu_search"
-                android:backgroundTint="#6200EE" />
-        </LinearLayout>
-
-        <!-- Fila 2 de botones -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="40dp">
+                app:tint="#FFFFFF" />
 
             <ImageButton
                 android:id="@+id/btn_alarma"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_marginEnd="16dp"
-                android:src="@android:drawable/ic_lock_idle_alarm"
                 android:backgroundTint="#6200EE"
+                android:contentDescription="Configurar alarma"
+                android:src="@android:drawable/ic_lock_idle_alarm"
                 app:tint="#FFFFFF" />
+        </LinearLayout>
+
+        <!-- Fila 2 de botones (Email UD1 + Dados y Chistes UD2) -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/btn_libre"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#6200EE"
+                android:contentDescription="Enviar correo electrónico"
                 android:src="@android:drawable/ic_dialog_email"
-                android:backgroundTint="#6200EE" />
+                app:tint="#FFFFFF" />
+
+            <ImageButton
+                android:id="@+id/btn_cajaFuerte"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#03DAC5"
+                android:contentDescription="Juego de los dados"
+                android:src="@android:drawable/ic_menu_rotate"
+                app:tint="#000000" />
+
+            <ImageButton
+                android:id="@+id/btn_chistes"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:backgroundTint="#03DAC5"
+                android:contentDescription="Chistes con voz"
+                android:src="@android:drawable/ic_btn_speak_now"
+                app:tint="#000000" />
         </LinearLayout>
 
         <!-- Botón volver a configuración -->
@@ -85,9 +115,9 @@
             android:id="@+id/btn_volver_config"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Volver a Configuración"
             android:backgroundTint="#757575"
-            android:textColor="#FFFFFF"/>
+            android:text="Volver a Configuración"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 </ScrollView>
